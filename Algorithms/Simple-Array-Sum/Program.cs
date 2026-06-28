@@ -29,7 +29,7 @@ int result = simpleArraySum(ar);
 
 textWriter.WriteLine(result);
 
-Console.WriteLine($"[Local] Resultado guardado con éxito: {result}");
+Console.WriteLine($"Resultado guardado con éxito: {result}");
 
 
 
