@@ -1,5 +1,7 @@
-﻿int n = Convert.ToInt32(Console.ReadLine()!.Trim());
+﻿Console.WriteLine("Enter size of the array");
+int n = Convert.ToInt32(Console.ReadLine()!.Trim());
 
+Console.WriteLine($"Enter {n} space-separated integers.");
 List<int> a = Console.ReadLine()!.TrimEnd().Split(' ').ToList().Select(aTemp => Convert.ToInt32(aTemp)).ToList();
 
 int result = pickingNumbers(a);
@@ -12,6 +14,11 @@ static int pickingNumbers(List<int> a)
 {
     List<int> newA = new List<int>();
     newA = a.Distinct().ToList();
+
+    if(newA.Count == 1)
+        return a.Count;
+
+    int maxRepeticiones = a.GroupBy(x => x).Max(g => g.Count());
 
     int maxLength = 0;
     for(int i = 0; i < newA.Count - 1; i++)
@@ -29,5 +36,8 @@ static int pickingNumbers(List<int> a)
             }
         }
     }
-    return maxLength;
+    if(maxLength > maxRepeticiones)
+        return maxLength;
+    else
+        return maxRepeticiones;
 }
