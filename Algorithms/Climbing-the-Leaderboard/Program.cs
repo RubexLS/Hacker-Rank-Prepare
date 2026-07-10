@@ -30,30 +30,15 @@ static List<int> climbingLeaderboard(List<int> ranked, List<int> player)
 
     newRanked = ranked.Distinct().ToList();
 
+    int count = newRanked.Count - 1;
 
-    for (int i = 0; i < player.Count; i++)
+    foreach(int score in player)
     {
-        for(int j = 0; j < newRanked.Count; j++)
+        while (count >= 0 && score >= newRanked[count])
         {
-            if(player[i] >= newRanked[0] && j == 0)
-            {
-                rankingNumber.Add(1);
-                break;
-            }
-            else if(j != 0)
-            {
-                if (player[i] < newRanked[j-1] && player[i] >= newRanked[j])
-                {
-                    rankingNumber.Add(j+1);
-                    break;
-                }
-                else if (player[i] < newRanked[newRanked.Count-1])
-                {
-                    rankingNumber.Add(newRanked.Count+1);
-                    break;
-                }
-            }
+            count--;
         }
+        rankingNumber.Add(count+2);
     }
     return rankingNumber;
 }
