@@ -21,7 +21,7 @@ static int beautifulTriplets(int d, List<int> arr)
             count++;
             if (arr.Count(n => n == arr[i]-2*d) > 1)
             {
-                count += (arr.Count(n => n == arr[i]-2*d) - 1;
+                count += (arr.Count(n => n == arr[i]-2*d)) - 1;
             }
         }
     }
