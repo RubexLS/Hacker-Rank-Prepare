@@ -56,9 +56,9 @@ static string gridSearch(List<string> G, List<string> P)
 
                 if (encontrado)
                     return "YES";
-                }
             }
         }
+    }
 
     return "NO";
 }
