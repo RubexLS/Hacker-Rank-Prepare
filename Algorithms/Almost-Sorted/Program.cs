@@ -10,6 +10,7 @@ static void almostSorted(List<int> arr)
 {
     int n = arr.Count;
 
+
     List<int> sortedArr = new List<int>(arr);
     sortedArr.Sort();
 
